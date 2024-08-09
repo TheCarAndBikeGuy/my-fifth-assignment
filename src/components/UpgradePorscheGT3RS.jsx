@@ -8,7 +8,7 @@ export default function UpgradePorscheGT3RS(props) {
       title="Porsche GT3 RS"
       tabIndex={0}
     >
-      <img src={porscheImage} alt="porscheImg" width={75} height={90}></img>
+      <img src={porscheImage} alt="porscheImg" width={75} height={75}></img>
       <p>
         Porsche GT3 RS Upgrade:
         <br />
