@@ -10,16 +10,40 @@ import UpgradeChevBelAir from "./components/UpgradeChevBelAir";
 import UpgradePorscheGT3RS from "./components/UpgradePorscheGT3RS";
 
 // The Clicker & CPS
-// Local Storage
 export default function App() {
+  // Local Storage Const
   const storedCars = JSON.parse(localStorage.getItem("cars"));
   const storedcps = JSON.parse(localStorage.getItem("cps"));
+  const storedClio = JSON.parse(localStorage.getItem("clio"));
+  const storedMini = JSON.parse(localStorage.getItem("mini"));
+  const storedGolf = JSON.parse(localStorage.getItem("golf"));
+  const storedBMW = JSON.parse(localStorage.getItem("bmw"));
+  const storedAudi = JSON.parse(localStorage.getItem("audi"));
+  const storedMazda = JSON.parse(localStorage.getItem("mazda"));
+  const storedChev = JSON.parse(localStorage.getItem("chev"));
+  const storedPorsche = JSON.parse(localStorage.getItem("porsche"));
+
   localStorage.setItem("cars", storedCars);
   localStorage.setItem("countCPS", storedcps);
-  console.log("storedStats", storedCars, storedcps);
+  localStorage.setItem("buyRenaultClio", storedClio);
+  localStorage.setItem("buyMiniCooper", storedMini);
+  localStorage.setItem("buyVolkswagonGolf", storedGolf);
+  localStorage.setItem("buyBMW3Series", storedBMW);
+  localStorage.setItem("buyAudiRS7", storedAudi);
+  localStorage.setItem("buyMazdaRX7", storedMazda);
+  localStorage.setItem("buyChevBelAir", storedChev);
+  localStorage.setItem("buyPorscheGT3RS", storedPorsche);
 
   const [cars, setCars] = useState(storedCars ? storedCars : 0);
   const [cps, setCps] = useState(storedcps ? storedcps : 1);
+  const [clio, setClio] = useState(storedClio ? storedClio : 0);
+  const [mini, setMini] = useState(storedMini ? storedMini : 0);
+  const [golf, setGolf] = useState(storedGolf ? storedGolf : 0);
+  const [bmw, setBMW] = useState(storedBMW ? storedBMW : 0);
+  const [audi, setAudi] = useState(storedAudi ? storedAudi : 0);
+  const [mazda, setMazda] = useState(storedMazda ? storedMazda : 0);
+  const [chev, setChev] = useState(storedChev ? storedChev : 0);
+  const [porsche, setPorsche] = useState(storedPorsche ? storedPorsche : 0);
 
   useEffect(() => {
     localStorage.setItem("cars", JSON.stringify(cars));
@@ -27,8 +51,39 @@ export default function App() {
 
   useEffect(() => {
     localStorage.setItem("cps", JSON.stringify(cps));
-    console.log(storedcps);
   }, [cps]);
+
+  useEffect(() => {
+    localStorage.setItem("clio", JSON.stringify(clio));
+  }, [clio]);
+
+  useEffect(() => {
+    localStorage.setItem("mini", JSON.stringify(mini));
+  }, [mini]);
+
+  useEffect(() => {
+    localStorage.setItem("golf", JSON.stringify(golf));
+  }, [golf]);
+
+  useEffect(() => {
+    localStorage.setItem("bmw", JSON.stringify(bmw));
+  }, [bmw]);
+
+  useEffect(() => {
+    localStorage.setItem("audi", JSON.stringify(audi));
+  }, [audi]);
+
+  useEffect(() => {
+    localStorage.setItem("mazda", JSON.stringify(mazda));
+  }, [mazda]);
+
+  useEffect(() => {
+    localStorage.setItem("chev", JSON.stringify(chev));
+  }, [chev]);
+
+  useEffect(() => {
+    localStorage.setItem("porsche", JSON.stringify(porsche));
+  }, [porsche]);
 
   useEffect(() => {
     const theInterval = setInterval(function () {
@@ -48,6 +103,7 @@ export default function App() {
     if (cars >= 10) {
       setCars(cars - 10);
       setCps(cps + 1);
+      setClio(clio + 1);
     }
   }
 
@@ -55,6 +111,7 @@ export default function App() {
     if (cars >= 50) {
       setCars(cars - 50);
       setCps(cps + 5);
+      setMini(mini + 1);
     }
   }
 
@@ -62,6 +119,7 @@ export default function App() {
     if (cars >= 150) {
       setCars(cars - 150);
       setCps(cps + 15);
+      setGolf(golf + 1);
     }
   }
 
@@ -69,6 +127,7 @@ export default function App() {
     if (cars >= 300) {
       setCars(cars - 300);
       setCps(cps + 30);
+      setBMW(bmw + 1);
     }
   }
 
@@ -76,6 +135,7 @@ export default function App() {
     if (cars >= 1000) {
       setCars(cars - 1000);
       setCps(cps + 75);
+      setAudi(audi + 1);
     }
   }
 
@@ -83,6 +143,7 @@ export default function App() {
     if (cars >= 5000) {
       setCars(cars - 5000);
       setCps(cps + 150);
+      setMazda(mazda + 1);
     }
   }
 
@@ -90,6 +151,7 @@ export default function App() {
     if (cars >= 1500) {
       setCars(cars - 15000);
       setCps(cps + 300);
+      setChev(chev + 1);
     }
   }
 
@@ -97,12 +159,13 @@ export default function App() {
     if (cars >= 30000) {
       setCars(cars - 30000);
       setCps(cps + 600);
+      setPorsche(porsche + 1);
     }
   }
 
   // HTML
   return (
-    <div className="car">
+    <div className="carTitle">
       <h1 title="Title" tabIndex={0}>
         🏁 Car Clicker 🏎️
       </h1>
@@ -113,21 +176,28 @@ export default function App() {
         title="Car Clicker"
         tabIndex={0}
       ></button>
-
-      <p title="Amount Of Cars" tabIndex={0}>
-        Car: {cars}
-      </p>
-      <p title="Cars Per Second" tabIndex={0}>
-        Cars Per Second: {cps}
-      </p>
-      <UpgradeRenaultClio buyRenaultClio={buyRenaultClio} />
-      <UpgradeMiniCooper buyMiniCooper={buyMiniCooper} />
-      <UpgradeVolkswagonGolf buyVolkswagonGolf={buyVolkswagonGolf} />
-      <UpgradeBMW3Series buyBMW3Series={buyBMW3Series} />
-      <UpgradeAudiRS7 buyAudiRS7={buyAudiRS7} />
-      <UpgradeMazdaRX7 buyMazdaRX7={buyMazdaRX7} />
-      <UpgradeChevBelAir buyChevBelAir={buyChevBelAir} />
-      <UpgradePorscheGT3RS buyPorscheGT3RS={buyPorscheGT3RS} />
+      <div className="carTitleCSS">
+        <p title="Amount Of Cars" tabIndex={0}>
+          Car: {cars}
+        </p>
+        <p title="Cars Per Second" tabIndex={0}>
+          Cars Per Second: {cps}
+        </p>
+      </div>
+      <UpgradeRenaultClio buyRenaultClio={buyRenaultClio} clio={clio} />
+      <UpgradeMiniCooper buyMiniCooper={buyMiniCooper} mini={mini} />
+      <UpgradeVolkswagonGolf
+        buyVolkswagonGolf={buyVolkswagonGolf}
+        golf={golf}
+      />
+      <UpgradeBMW3Series buyBMW3Series={buyBMW3Series} bmw={bmw} />
+      <UpgradeAudiRS7 buyAudiRS7={buyAudiRS7} audi={audi} />
+      <UpgradeMazdaRX7 buyMazdaRX7={buyMazdaRX7} mazda={mazda} />
+      <UpgradeChevBelAir buyChevBelAir={buyChevBelAir} chev={chev} />
+      <UpgradePorscheGT3RS
+        buyPorscheGT3RS={buyPorscheGT3RS}
+        porsche={porsche}
+      />
     </div>
   );
 }

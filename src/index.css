@@ -8,8 +8,12 @@ body {
 }
 
 /* Div Element */
-.car {
+.carTitle {
   text-align: center;
+}
+
+.carTitleCSS {
+  font-weight: bold;
 }
 
 /* Title Of Page */
@@ -39,254 +43,33 @@ h1 {
   border-color: #000000;
 }
 
+.carClicker:active {
+  transition: 0.5s;
+  transform: rotatey(180deg);
+}
 
-/* Clio Upgrade */
-.clio {
-  background-image: url("images/clio.png");
+/* Upgrade Button */
+
+.mainBtn {
+  display: flex;
+  border: 2px solid black;
+  width: 290px;
+  height: 100px;
+  border-radius: 10px;
+  cursor: pointer;
+  margin: 0 auto;
+  margin-top: 5px;
+}
+
+.mainBtn:hover {
+  background-color: #fff;
+  transition: 0.1s;
+  font-weight: bold;
+}
+
+.mainBtn:active {
+  background-image: url("images/cartrack.jpg");
   background-position: center;
   background-size: cover;
-  background-color: darkgray;
-  height: 75px;
-  width: 75px;
-  cursor: pointer;
-  display: block;
-  margin: 1 auto;
-  border: none;
-}
-
-.clio:hover {
-  background-color: #fff;
-  transition: 0.5s;
-}
-
-.clioText {
-  display: flex;
-  position: relative;
-  border: 3px solid black;
-  border-radius: 10px;
-}
-
-.clioText:hover {
-  background-color: #fff;
-  transition: 0.5s;
-}
-
-/* Mini Upgrade */
-.mini {
-  background-image: url("images/mini2.png");
-  background-position: center;
-  background-size: cover;
-  background-color: darkgray;
-  height: 75px;
-  width: 75px;
-  cursor: pointer;
-  display: block;
-  margin: 1 auto;
-  border: none;
-}
-
-.mini:hover {
-  background-color: #fff;
-  transition: 0.5s;
-}
-
-
-.miniText {
-  display: flex;
-  position: relative;
-  border: 3px solid black;
-  border-radius: 10px;
-}
-
-.miniText:hover {
-  background-color: #fff;
-  transition: 0.5s;
-}
-
-
-/* Golf Upgrade */
-.golf {
-  background-image: url("images/golf2.png");
-  background-position: center;
-  background-size: cover;
-  background-color: darkgray;
-  height: 75px;
-  width: 75px;
-  cursor: pointer;
-  display: block;
-  margin: 1 auto;
-  border: none;
-}
-
-.golf:hover {
-  background-color: #fff;
-  transition: 0.5s;
-}
-
-.golfText {
-  display: flex;
-  position: relative;
-  border: 3px solid black;
-  border-radius: 10px;
-}
-
-.golfText:hover {
-  background-color: #fff;
-  transition: 0.5s;
-}
-
-/* BMW Upgrade */
-.bmw {
-  background-image: url("images/bmw3.png");
-  background-position: center;
-  background-size: cover;
-  background-color: darkgray;
-  height: 75px;
-  width: 75px;
-  cursor: pointer;
-  display: block;
-  margin: 1 auto;
-  border: none;
-}
-
-.bmw:hover {
-  background-color: #fff;
-  transition: 0.5s;
-}
-
-.bmwText {
-  display: flex;
-  position: relative;
-  border: 3px solid black;
-  border-radius: 10px;
-}
-
-.bmwText:hover {
-  background-color: #fff;
-  transition: 0.5s;
-}
-
-/* Audi Upgrade */
-.audi {
-  background-image: url("images/audi1.png");
-  background-position: center;
-  background-size: cover;
-  background-color: darkgray;
-  height: 75px;
-  width: 75px;
-  cursor: pointer;
-  display: block;
-  margin: 1 auto;
-  border: none;
-}
-
-.audi:hover {
-  background-color: #fff;
-  transition: 0.5s;
-}
-
-
-.audiText {
-  display: flex;
-  position: relative;
-  border: 3px solid black;
-  border-radius: 10px;
-}
-
-.audiText:hover {
-  background-color: #fff;
-  transition: 0.5s;
-}
-
-/* Mazda */
-.mazda {
-  background-image: url("images/mazda.png");
-  background-position: center;
-  background-size: cover;
-  background-color: darkgray;
-  height: 75px;
-  width: 75px;
-  cursor: pointer;
-  display: block;
-  margin: 1 auto;
-  border: none;
-}
-
-.mazda:hover {
-  background-color: #fff;
-  transition: 0.5s;
-}
-
-.mazdaText {
-  display: flex;
-  position: relative;
-  border: 3px solid black;
-  border-radius: 10px;
-}
-
-.mazdaText:hover {
-  background-color: #fff;
-  transition: 0.5s;
-}
-
-/* Chev Bel Air */
-.chev {
-  background-image: url("images/chev.png");
-  background-position: center;
-  background-size: cover;
-  background-color: darkgray;
-  height: 75px;
-  width: 75px;
-  cursor: pointer;
-  display: block;
-  margin: 1 auto;
-  border: none;
-}
-
-.chev:hover {
-  background-color: #fff;
-  transition: 0.5s;
-}
-
-.chevText {
-  display: flex;
-  position: relative;
-  border: 3px solid black;
-  border-radius: 10px;
-}
-
-.chevText:hover {
-  background-color: #fff;
-  transition: 0.5s;
-}
-/* Posrche GT3 RS */
-
-.porsche {
-  background-image: url("images/porsche1.png");
-  background-position: center;
-  background-size: cover;
-  background-color: darkgray;
-  height: 75px;
-  width: 75px;
-  cursor: pointer;
-  display: block;
-  margin: 1 auto;
-  border: none;
-}
-
-.porsche:hover {
-  background-color: #fff;
-  transition: 0.5s;
-}
-
-.porscheText {
-  display: flex;
-  position: relative;
-  border: 3px solid black;
-  border-radius: 10px;
-}
-
-.porscheText:hover {
-  background-color: #fff;
-  transition: 0.5s;
+  transition: none;
 }
