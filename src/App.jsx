@@ -9,15 +9,26 @@ import UpgradeMazdaRX7 from "./components/UpgradeMazdaRX7";
 import UpgradeChevBelAir from "./components/UpgradeChevBelAir";
 import UpgradePorscheGT3RS from "./components/UpgradePorscheGT3RS";
 
-
-let clio = 0 
-
 // The Clicker & CPS
+// Local Storage
 export default function App() {
-  const [cars, setCars] = useState(1);
-  const [cps, setCps] = useState(1);
-  localStorage.setItem("countInLS", cars);
-  localStorage.setItem("countCPS", cps);
+  const storedCars = JSON.parse(localStorage.getItem("cars"));
+  const storedcps = JSON.parse(localStorage.getItem("cps"));
+  localStorage.setItem("cars", storedCars);
+  localStorage.setItem("countCPS", storedcps);
+  console.log("storedStats", storedCars, storedcps);
+
+  const [cars, setCars] = useState(storedCars ? storedCars : 0);
+  const [cps, setCps] = useState(storedcps ? storedcps : 1);
+
+  useEffect(() => {
+    localStorage.setItem("cars", JSON.stringify(cars));
+  }, [cars]);
+
+  useEffect(() => {
+    localStorage.setItem("cps", JSON.stringify(cps));
+    console.log(storedcps);
+  }, [cps]);
 
   useEffect(() => {
     const theInterval = setInterval(function () {
@@ -34,43 +45,59 @@ export default function App() {
 
   // Upgrades
   function buyRenaultClio() {
-    setCars(cars - 10);
-    setCps(cps + 1);
+    if (cars >= 10) {
+      setCars(cars - 10);
+      setCps(cps + 1);
+    }
   }
 
   function buyMiniCooper() {
-    setCars(cars - 50);
-    setCps(cps + 5);
+    if (cars >= 50) {
+      setCars(cars - 50);
+      setCps(cps + 5);
+    }
   }
 
   function buyVolkswagonGolf() {
-    setCars(cars - 150);
-    setCps(cps + 15);
+    if (cars >= 150) {
+      setCars(cars - 150);
+      setCps(cps + 15);
+    }
   }
 
   function buyBMW3Series() {
-    setCars(cars - 300);
-    setCps(cps + 30);
+    if (cars >= 300) {
+      setCars(cars - 300);
+      setCps(cps + 30);
+    }
   }
 
   function buyAudiRS7() {
-    setCars(cars - 1000);
-    setCps(cps + 75);
+    if (cars >= 1000) {
+      setCars(cars - 1000);
+      setCps(cps + 75);
+    }
   }
 
   function buyMazdaRX7() {
-    setCars(cars - 5000);
-    setCps(cps + 150);
+    if (cars >= 5000) {
+      setCars(cars - 5000);
+      setCps(cps + 150);
+    }
   }
 
   function buyChevBelAir() {
-    setCars(cars - 15000);
-    setCps(cps + 300);
+    if (cars >= 1500) {
+      setCars(cars - 15000);
+      setCps(cps + 300);
+    }
   }
 
   function buyPorscheGT3RS() {
-    setCars(cars - 30000);
-    setCps(cps + 600);
+    if (cars >= 30000) {
+      setCars(cars - 30000);
+      setCps(cps + 600);
+    }
   }
 
   // HTML
@@ -81,7 +108,7 @@ export default function App() {
       </h1>
 
       <button
-        class="carClicker"
+        className="carClicker"
         onClick={incrementCars}
         title="Car Clicker"
         tabIndex={0}
@@ -94,7 +121,7 @@ export default function App() {
         Cars Per Second: {cps}
       </p>
       <UpgradeRenaultClio buyRenaultClio={buyRenaultClio} />
-      <p><UpgradeMiniCooper buyMiniCooper={buyMiniCooper} /></p>
+      <UpgradeMiniCooper buyMiniCooper={buyMiniCooper} />
       <UpgradeVolkswagonGolf buyVolkswagonGolf={buyVolkswagonGolf} />
       <UpgradeBMW3Series buyBMW3Series={buyBMW3Series} />
       <UpgradeAudiRS7 buyAudiRS7={buyAudiRS7} />
