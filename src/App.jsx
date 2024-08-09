@@ -148,7 +148,7 @@ export default function App() {
   }
 
   function buyChevBelAir() {
-    if (cars >= 1500) {
+    if (cars >= 15000) {
       setCars(cars - 15000);
       setCps(cps + 300);
       setChev(chev + 1);
